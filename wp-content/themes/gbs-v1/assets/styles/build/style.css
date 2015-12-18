@@ -1,0 +1,3366 @@
+/*!
+Theme Name: GBS
+Author: Dan Cruzat for E+C
+Version: 1.0
+*/
+/* ==========================================================================
+   Mixins
+   ========================================================================== */
+/*
+ * Mixin for easy media queries
+ * @include bp(tablet) { SCSS here };
+*/
+/*
+ * Mixin for clearfix
+ * @include clearfix;
+*/
+/*
+ * Mixin for basic CSS triangles
+ * @include triangle(up, #000, 50px)
+*/
+/*
+ * @font-face mixin
+ * Bulletproof font-face via Font Squirrel
+ * @include fontface('family', 'assets/fonts/', 'myfontname');
+ */
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html,
+button,
+input,
+select,
+textarea {
+  color: #222;
+}
+
+html {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #edc731;
+  text-shadow: none;
+}
+
+::selection {
+  background: #edc731;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+audio,
+canvas,
+img,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Border-box all the things!
+   ========================================================================== */
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   General
+   ========================================================================== */
+/* ==========================================================================
+   Links
+   ========================================================================== */
+a,
+a:visited {
+  color: red;
+}
+
+a:hover {
+  color: blue;
+}
+
+/* ==========================================================================
+   Images
+   ========================================================================== */
+img {
+  height: auto;
+  /* Make sure images are scaled correctly. */
+  max-width: 100%;
+  /* Adhere to container width. */
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  clear: both;
+}
+
+p {
+  margin-bottom: 1.5em;
+}
+
+blockquote {
+  margin: 0 1.5em;
+}
+
+address {
+  margin: 0 0 1.5em;
+}
+
+/* ==========================================================================
+   Alignment
+   ========================================================================== */
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5em;
+}
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5em;
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Accessiblity
+   ========================================================================== */
+/* Text meant only for screen readers */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar */
+}
+
+/* ==========================================================================
+   Clearings
+   ========================================================================== */
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+  content: '';
+  display: table;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+  clear: both;
+}
+
+/* ==========================================================================
+   Infinite Scroll
+   ========================================================================== */
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .paging-navigation,
+.infinite-scroll.neverending .site-footer {
+  /* Theme Footer (when set to scrolling) */
+  display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+.infinity-end.neverending .site-footer {
+  display: block;
+}
+
+/*@import "partials/grid";*/
+/*@import "partials/layout";*/
+/*@import "partials/header";*/
+/*@import "partials/footer";*/
+/*@import "partials/menus";*/
+/*@import "partials/page-post";*/
+/*@import "partials/page-home";*/
+/*@import "partials/page-blog";*/
+/*@import "partials/widgets";*/
+/*@import "partials/comments";*/
+/*@import "partials/forms";*/
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+.invisible {
+  visibility: hidden;
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links for images, or javascript/internal links
+   */
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+    /* h5bp.com/t */
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+/* Slider */
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.slick-list:focus {
+  outline: none;
+}
+.slick-loading .slick-list {
+  background: white url("./ajax-loader.gif") center center no-repeat;
+}
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.slick-slider .slick-track {
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+}
+.slick-track:before, .slick-track:after {
+  content: "";
+  display: table;
+}
+.slick-track:after {
+  clear: both;
+}
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+}
+[dir="rtl"] .slick-slide {
+  float: right;
+}
+.slick-slide img {
+  display: block;
+}
+.slick-slide.slick-loading img {
+  display: none;
+}
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+.slick-initialized .slick-slide {
+  display: block;
+}
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+/* Icons */
+@font-face {
+  font-family: "slick";
+  src: url("./fonts/slick.eot");
+  src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Arrows */
+.slick-prev,
+.slick-next {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 0;
+  font-size: 0;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  top: 50%;
+  margin-top: -10px;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+.slick-prev:hover, .slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  outline: none;
+  background: transparent;
+  color: transparent;
+}
+.slick-prev:hover:before, .slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before {
+  opacity: 1;
+}
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+  opacity: 0.25;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-family: "slick";
+  font-size: 20px;
+  line-height: 1;
+  color: white;
+  opacity: 0.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+  left: -25px;
+}
+[dir="rtl"] .slick-prev {
+  left: auto;
+  right: -25px;
+}
+.slick-prev:before {
+  content: "\2190";
+}
+[dir="rtl"] .slick-prev:before {
+  content: "\2192";
+}
+
+.slick-next {
+  right: -25px;
+}
+[dir="rtl"] .slick-next {
+  left: -25px;
+  right: auto;
+}
+.slick-next:before {
+  content: "\2192";
+}
+[dir="rtl"] .slick-next:before {
+  content: "\2190";
+}
+
+/* Dots */
+.slick-slider {
+  margin-bottom: 30px;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: -40px;
+  /*bottom: -45px;*/
+  margin: 0;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  width: 100%;
+}
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+.slick-dots li button {
+  border: 0;
+  background: transparent;
+  display: block;
+  height: 20px;
+  width: 20px;
+  outline: none;
+  line-height: 0;
+  font-size: 0;
+  color: transparent;
+  padding: 5px;
+  cursor: pointer;
+}
+.slick-dots li button:hover, .slick-dots li button:focus {
+  outline: none;
+}
+.slick-dots li button:hover:before, .slick-dots li button:focus:before {
+  opacity: 1;
+}
+.slick-dots li button:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "\2022";
+  width: 20px;
+  height: 20px;
+  font-family: "slick";
+  font-size: 64px;
+  line-height: 20px;
+  text-align: center;
+  color: #b4aba4;
+  opacity: 0.25;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li.slick-active button:before {
+  color: #528b8b;
+  opacity: 0.75;
+}
+
+/*!
+ * FullCalendar v2.3.2 Stylesheet
+ * Docs & License: http://fullcalendar.io/
+ * (c) 2015 Adam Shaw
+ */
+.fc {
+  direction: ltr;
+  text-align: left;
+}
+
+.fc-rtl {
+  text-align: right;
+}
+
+body .fc {
+  /* extra precedence to overcome jqui */
+  font-size: 1em;
+}
+
+/* Colors
+--------------------------------------------------------------------------------------------------*/
+.fc-unthemed th,
+.fc-unthemed td,
+.fc-unthemed thead,
+.fc-unthemed tbody,
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-row,
+.fc-unthemed .fc-popover {
+  border-color: #ddd;
+}
+
+.fc-unthemed .fc-popover {
+  background-color: #fff;
+}
+
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-popover .fc-header {
+  background: #eee;
+}
+
+.fc-unthemed .fc-popover .fc-header .fc-close {
+  color: #666;
+}
+
+.fc-unthemed .fc-today {
+  background: #fcf8e3;
+}
+
+.fc-highlight {
+  /* when user is selecting cells */
+  background: #bce8f1;
+  opacity: .3;
+  filter: alpha(opacity=30);
+  /* for IE */
+}
+
+.fc-bgevent {
+  /* default look for background events */
+  background: #8fdf82;
+  opacity: .3;
+  filter: alpha(opacity=30);
+  /* for IE */
+}
+
+.fc-nonbusiness {
+  /* default look for non-business-hours areas */
+  /* will inherit .fc-bgevent's styles */
+  background: #d7d7d7;
+}
+
+/* Icons (inline elements with styled text that mock arrow icons)
+--------------------------------------------------------------------------------------------------*/
+.fc-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  font-size: 1em;
+  text-align: center;
+  overflow: hidden;
+  font-family: "Courier New", Courier, monospace;
+  /* don't allow browser text-selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*
+Acceptable font-family overrides for individual icons:
+	"Arial", sans-serif
+	"Times New Roman", serif
+
+NOTE: use percentage font sizes or else old IE chokes
+*/
+.fc-icon:after {
+  position: relative;
+  margin: 0 -1em;
+  /* ensures character will be centered, regardless of width */
+}
+
+.fc-icon-left-single-arrow:after {
+  content: "\02039";
+  font-weight: bold;
+  font-size: 200%;
+  top: -7%;
+  left: 3%;
+}
+
+.fc-icon-right-single-arrow:after {
+  content: "\0203A";
+  font-weight: bold;
+  font-size: 200%;
+  top: -7%;
+  left: -3%;
+}
+
+.fc-icon-left-double-arrow:after {
+  content: "\000AB";
+  font-size: 160%;
+  top: -7%;
+}
+
+.fc-icon-right-double-arrow:after {
+  content: "\000BB";
+  font-size: 160%;
+  top: -7%;
+}
+
+.fc-icon-left-triangle:after {
+  content: "\25C4";
+  font-size: 125%;
+  top: 3%;
+  left: -2%;
+}
+
+.fc-icon-right-triangle:after {
+  content: "\25BA";
+  font-size: 125%;
+  top: 3%;
+  left: 2%;
+}
+
+.fc-icon-down-triangle:after {
+  content: "\25BC";
+  font-size: 125%;
+  top: 2%;
+}
+
+.fc-icon-x:after {
+  content: "\000D7";
+  font-size: 200%;
+  top: 6%;
+}
+
+/* Buttons (styled <button> tags, normalized to work cross-browser)
+--------------------------------------------------------------------------------------------------*/
+.fc button {
+  /* force height to include the border and padding */
+  box-sizing: border-box;
+  /* dimensions */
+  margin: 0;
+  height: 2.1em;
+  padding: 0 .6em;
+  /* text & cursor */
+  font-size: 1em;
+  /* normalize */
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Firefox has an annoying inner border */
+.fc button::-moz-focus-inner {
+  margin: 0;
+  padding: 0;
+}
+
+.fc-state-default {
+  /* non-theme */
+  border: 1px solid;
+}
+
+.fc-state-default.fc-corner-left {
+  /* non-theme */
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.fc-state-default.fc-corner-right {
+  /* non-theme */
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* icons in buttons */
+.fc button .fc-icon {
+  /* non-theme */
+  position: relative;
+  top: -0.05em;
+  /* seems to be a good adjustment across browsers */
+  margin: 0 .2em;
+  vertical-align: middle;
+}
+
+/*
+  button states
+  borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
+*/
+.fc-state-default {
+  background-color: #f5f5f5;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, white, #e6e6e6);
+  background-image: linear-gradient(to bottom, white, #e6e6e6);
+  background-repeat: repeat-x;
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  color: #333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.fc-state-hover,
+.fc-state-down,
+.fc-state-active,
+.fc-state-disabled {
+  color: #333333;
+  background-color: #e6e6e6;
+}
+
+.fc-state-hover {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+
+.fc-state-down,
+.fc-state-active {
+  background-color: #cccccc;
+  background-image: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.fc-state-disabled {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  box-shadow: none;
+}
+
+/* Buttons Groups
+--------------------------------------------------------------------------------------------------*/
+.fc-button-group {
+  display: inline-block;
+}
+
+/*
+every button that is not first in a button group should scootch over one pixel and cover the
+previous button's border...
+*/
+.fc .fc-button-group > * {
+  /* extra precedence b/c buttons have margin set to zero */
+  float: left;
+  margin: 0 0 0 -1px;
+}
+
+.fc .fc-button-group > :first-child {
+  /* same */
+  margin-left: 0;
+}
+
+/* Popover
+--------------------------------------------------------------------------------------------------*/
+.fc-popover {
+  position: absolute;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.fc-popover .fc-header {
+  /* TODO: be more consistent with fc-head/fc-body */
+  padding: 2px 4px;
+}
+
+.fc-popover .fc-header .fc-title {
+  margin: 0 2px;
+}
+
+.fc-popover .fc-header .fc-close {
+  cursor: pointer;
+}
+
+.fc-ltr .fc-popover .fc-header .fc-title,
+.fc-rtl .fc-popover .fc-header .fc-close {
+  float: left;
+}
+
+.fc-rtl .fc-popover .fc-header .fc-title,
+.fc-ltr .fc-popover .fc-header .fc-close {
+  float: right;
+}
+
+/* unthemed */
+.fc-unthemed .fc-popover {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.fc-unthemed .fc-popover .fc-header .fc-close {
+  font-size: .9em;
+  margin-top: 2px;
+}
+
+/* jqui themed */
+.fc-popover > .ui-widget-header + .ui-widget-content {
+  border-top: 0;
+  /* where they meet, let the header have the border */
+}
+
+/* Misc Reusable Components
+--------------------------------------------------------------------------------------------------*/
+.fc-divider {
+  border-style: solid;
+  border-width: 1px;
+}
+
+hr.fc-divider {
+  height: 0;
+  margin: 0;
+  padding: 0 0 2px;
+  /* height is unreliable across browsers, so use padding */
+  border-width: 1px 0;
+}
+
+.fc-clear {
+  clear: both;
+}
+
+.fc-bg,
+.fc-bgevent-skeleton,
+.fc-highlight-skeleton,
+.fc-helper-skeleton {
+  /* these element should always cling to top-left/right corners */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.fc-bg {
+  bottom: 0;
+  /* strech bg to bottom edge */
+}
+
+.fc-bg table {
+  height: 100%;
+  /* strech bg to bottom edge */
+}
+
+/* Tables
+--------------------------------------------------------------------------------------------------*/
+.fc table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 1em;
+  /* normalize cross-browser */
+}
+
+.fc th {
+  text-align: center;
+}
+
+.fc th,
+.fc td {
+  border-style: solid;
+  border-width: 1px;
+  padding: 0;
+  vertical-align: top;
+}
+
+.fc td.fc-today {
+  border-style: double;
+  /* overcome neighboring borders */
+}
+
+/* Fake Table Rows
+--------------------------------------------------------------------------------------------------*/
+.fc .fc-row {
+  /* extra precedence to overcome themes w/ .ui-widget-content forcing a 1px border */
+  /* no visible border by default. but make available if need be (scrollbar width compensation) */
+  border-style: solid;
+  border-width: 0;
+}
+
+.fc-row table {
+  /* don't put left/right border on anything within a fake row.
+     the outer tbody will worry about this */
+  border-left: 0 hidden transparent;
+  border-right: 0 hidden transparent;
+  /* no bottom borders on rows */
+  border-bottom: 0 hidden transparent;
+}
+
+.fc-row:first-child table {
+  border-top: 0 hidden transparent;
+  /* no top border on first row */
+}
+
+/* Day Row (used within the header and the DayGrid)
+--------------------------------------------------------------------------------------------------*/
+.fc-row {
+  position: relative;
+}
+
+.fc-row .fc-bg {
+  z-index: 1;
+}
+
+/* highlighting cells & background event skeleton */
+.fc-row .fc-bgevent-skeleton,
+.fc-row .fc-highlight-skeleton {
+  bottom: 0;
+  /* stretch skeleton to bottom of row */
+}
+
+.fc-row .fc-bgevent-skeleton table,
+.fc-row .fc-highlight-skeleton table {
+  height: 100%;
+  /* stretch skeleton to bottom of row */
+}
+
+.fc-row .fc-highlight-skeleton td,
+.fc-row .fc-bgevent-skeleton td {
+  border-color: transparent;
+}
+
+.fc-row .fc-bgevent-skeleton {
+  z-index: 2;
+}
+
+.fc-row .fc-highlight-skeleton {
+  z-index: 3;
+}
+
+/*
+row content (which contains day/week numbers and events) as well as "helper" (which contains
+temporary rendered events).
+*/
+.fc-row .fc-content-skeleton {
+  position: relative;
+  z-index: 4;
+  padding-bottom: 2px;
+  /* matches the space above the events */
+}
+
+.fc-row .fc-helper-skeleton {
+  z-index: 5;
+}
+
+.fc-row .fc-content-skeleton td,
+.fc-row .fc-helper-skeleton td {
+  /* see-through to the background below */
+  background: none;
+  /* in case <td>s are globally styled */
+  border-color: transparent;
+  /* don't put a border between events and/or the day number */
+  border-bottom: 0;
+}
+
+.fc-row .fc-content-skeleton tbody td,
+.fc-row .fc-helper-skeleton tbody td {
+  /* don't put a border between event cells */
+  border-top: 0;
+}
+
+/* Scrolling Container
+--------------------------------------------------------------------------------------------------*/
+.fc-scroller {
+  /* this class goes on elements for guaranteed vertical scrollbars */
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.fc-scroller > * {
+  /* we expect an immediate inner element */
+  position: relative;
+  /* re-scope all positions */
+  width: 100%;
+  /* hack to force re-sizing this inner element when scrollbars appear/disappear */
+  overflow: hidden;
+  /* don't let negative margins or absolute positioning create further scroll */
+}
+
+/* Global Event Styles
+--------------------------------------------------------------------------------------------------*/
+.fc-event {
+  position: relative;
+  /* for resize handle and other inner positioning */
+  display: block;
+  /* make the <a> tag block */
+  font-size: .85em;
+  line-height: 1.3;
+  border-radius: 3px;
+  border: 1px solid #3a87ad;
+  /* default BORDER color */
+  background-color: #3a87ad;
+  /* default BACKGROUND color */
+  font-weight: normal;
+  /* undo jqui's ui-widget-header bold */
+}
+
+/* overpower some of bootstrap's and jqui's styles on <a> tags */
+.fc-event,
+.fc-event:hover,
+.ui-widget .fc-event {
+  color: #fff;
+  /* default TEXT color */
+  text-decoration: none;
+  /* if <a> has an href */
+}
+
+.fc-event[href],
+.fc-event.fc-draggable {
+  cursor: pointer;
+  /* give events with links and draggable events a hand mouse pointer */
+}
+
+.fc-not-allowed,
+.fc-not-allowed .fc-event {
+  /* to override an event's custom cursor */
+  cursor: not-allowed;
+}
+
+.fc-event .fc-bg {
+  /* the generic .fc-bg already does position */
+  z-index: 1;
+  background: #fff;
+  opacity: .25;
+  filter: alpha(opacity=25);
+  /* for IE */
+}
+
+.fc-event .fc-content {
+  position: relative;
+  z-index: 2;
+}
+
+.fc-event .fc-resizer {
+  position: absolute;
+  z-index: 3;
+}
+
+/* Horizontal Events
+--------------------------------------------------------------------------------------------------*/
+/* events that are continuing to/from another week. kill rounded corners and butt up against edge */
+.fc-ltr .fc-h-event.fc-not-start,
+.fc-rtl .fc-h-event.fc-not-end {
+  margin-left: 0;
+  border-left-width: 0;
+  padding-left: 1px;
+  /* replace the border with padding */
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.fc-ltr .fc-h-event.fc-not-end,
+.fc-rtl .fc-h-event.fc-not-start {
+  margin-right: 0;
+  border-right-width: 0;
+  padding-right: 1px;
+  /* replace the border with padding */
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* resizer */
+.fc-h-event .fc-resizer {
+  /* positioned it to overcome the event's borders */
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+  right: -1px;
+  width: 5px;
+}
+
+/* left resizer  */
+.fc-ltr .fc-h-event .fc-start-resizer,
+.fc-ltr .fc-h-event .fc-start-resizer:before,
+.fc-ltr .fc-h-event .fc-start-resizer:after,
+.fc-rtl .fc-h-event .fc-end-resizer,
+.fc-rtl .fc-h-event .fc-end-resizer:before,
+.fc-rtl .fc-h-event .fc-end-resizer:after {
+  right: auto;
+  /* ignore the right and only use the left */
+  cursor: w-resize;
+}
+
+/* right resizer */
+.fc-ltr .fc-h-event .fc-end-resizer,
+.fc-ltr .fc-h-event .fc-end-resizer:before,
+.fc-ltr .fc-h-event .fc-end-resizer:after,
+.fc-rtl .fc-h-event .fc-start-resizer,
+.fc-rtl .fc-h-event .fc-start-resizer:before,
+.fc-rtl .fc-h-event .fc-start-resizer:after {
+  left: auto;
+  /* ignore the left and only use the right */
+  cursor: e-resize;
+}
+
+/* DayGrid events
+----------------------------------------------------------------------------------------------------
+We use the full "fc-day-grid-event" class instead of using descendants because the event won't
+be a descendant of the grid when it is being dragged.
+*/
+.fc-day-grid-event {
+  margin: 1px 2px 0;
+  /* spacing between events and edges */
+  padding: 0 1px;
+}
+
+.fc-day-grid-event .fc-content {
+  /* force events to be one-line tall */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.fc-day-grid-event .fc-time {
+  font-weight: bold;
+}
+
+.fc-day-grid-event .fc-resizer {
+  /* enlarge the default hit area */
+  left: -3px;
+  right: -3px;
+  width: 7px;
+}
+
+/* Event Limiting
+--------------------------------------------------------------------------------------------------*/
+/* "more" link that represents hidden events */
+a.fc-more {
+  margin: 1px 3px;
+  font-size: .85em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.fc-more:hover {
+  text-decoration: underline;
+}
+
+.fc-limited {
+  /* rows and cells that are hidden because of a "more" link */
+  display: none;
+}
+
+/* popover that appears when "more" link is clicked */
+.fc-day-grid .fc-row {
+  z-index: 1;
+  /* make the "more" popover one higher than this */
+}
+
+.fc-more-popover {
+  z-index: 2;
+  width: 220px;
+}
+
+.fc-more-popover .fc-event-container {
+  padding: 10px;
+}
+
+/* Toolbar
+--------------------------------------------------------------------------------------------------*/
+.fc-toolbar {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.fc-toolbar .fc-left {
+  float: left;
+}
+
+.fc-toolbar .fc-right {
+  float: right;
+}
+
+.fc-toolbar .fc-center {
+  display: inline-block;
+}
+
+/* the things within each left/right/center section */
+.fc .fc-toolbar > * > * {
+  /* extra precedence to override button border margins */
+  float: left;
+  margin-left: .75em;
+}
+
+/* the first thing within each left/center/right section */
+.fc .fc-toolbar > * > :first-child {
+  /* extra precedence to override button border margins */
+  margin-left: 0;
+}
+
+/* title text */
+.fc-toolbar h2 {
+  margin: 0;
+}
+
+/* button layering (for border precedence) */
+.fc-toolbar button {
+  position: relative;
+}
+
+.fc-toolbar .fc-state-hover,
+.fc-toolbar .ui-state-hover {
+  z-index: 2;
+}
+
+.fc-toolbar .fc-state-down {
+  z-index: 3;
+}
+
+.fc-toolbar .fc-state-active,
+.fc-toolbar .ui-state-active {
+  z-index: 4;
+}
+
+.fc-toolbar button:focus {
+  z-index: 5;
+}
+
+/* View Structure
+--------------------------------------------------------------------------------------------------*/
+/* undo twitter bootstrap's box-sizing rules. normalizes positioning techniques */
+/* don't do this for the toolbar because we'll want bootstrap to style those buttons as some pt */
+.fc-view-container *,
+.fc-view-container *:before,
+.fc-view-container *:after {
+  box-sizing: content-box;
+}
+
+.fc-view,
+.fc-view > table {
+  /* so dragged elements can be above the view's main element */
+  position: relative;
+  z-index: 1;
+}
+
+/* BasicView
+--------------------------------------------------------------------------------------------------*/
+/* day row structure */
+.fc-basicWeek-view .fc-content-skeleton,
+.fc-basicDay-view .fc-content-skeleton {
+  /* we are sure there are no day numbers in these views, so... */
+  padding-top: 1px;
+  /* add a pixel to make sure there are 2px padding above events */
+  padding-bottom: 1em;
+  /* ensure a space at bottom of cell for user selecting/clicking */
+}
+
+.fc-basic-view .fc-body .fc-row {
+  min-height: 4em;
+  /* ensure that all rows are at least this tall */
+}
+
+/* a "rigid" row will take up a constant amount of height because content-skeleton is absolute */
+.fc-row.fc-rigid {
+  overflow: hidden;
+}
+
+.fc-row.fc-rigid .fc-content-skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* week and day number styling */
+.fc-basic-view .fc-week-number,
+.fc-basic-view .fc-day-number {
+  padding: 0 2px;
+}
+
+.fc-basic-view td.fc-week-number span,
+.fc-basic-view td.fc-day-number {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.fc-basic-view .fc-week-number {
+  text-align: center;
+}
+
+.fc-basic-view .fc-week-number span {
+  /* work around the way we do column resizing and ensure a minimum width */
+  display: inline-block;
+  min-width: 1.25em;
+}
+
+.fc-ltr .fc-basic-view .fc-day-number {
+  text-align: right;
+}
+
+.fc-rtl .fc-basic-view .fc-day-number {
+  text-align: left;
+}
+
+.fc-day-number.fc-other-month {
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+  /* for IE */
+  /* opacity with small font can sometimes look too faded
+     might want to set the 'color' property instead
+     making day-numbers bold also fixes the problem */
+}
+
+/* AgendaView all-day area
+--------------------------------------------------------------------------------------------------*/
+.fc-agenda-view .fc-day-grid {
+  position: relative;
+  z-index: 2;
+  /* so the "more.." popover will be over the time grid */
+}
+
+.fc-agenda-view .fc-day-grid .fc-row {
+  min-height: 3em;
+  /* all-day section will never get shorter than this */
+}
+
+.fc-agenda-view .fc-day-grid .fc-row .fc-content-skeleton {
+  padding-top: 1px;
+  /* add a pixel to make sure there are 2px padding above events */
+  padding-bottom: 1em;
+  /* give space underneath events for clicking/selecting days */
+}
+
+/* TimeGrid axis running down the side (for both the all-day area and the slot area)
+--------------------------------------------------------------------------------------------------*/
+.fc .fc-axis {
+  /* .fc to overcome default cell styles */
+  vertical-align: middle;
+  padding: 0 4px;
+  white-space: nowrap;
+}
+
+.fc-ltr .fc-axis {
+  text-align: right;
+}
+
+.fc-rtl .fc-axis {
+  text-align: left;
+}
+
+.ui-widget td.fc-axis {
+  font-weight: normal;
+  /* overcome jqui theme making it bold */
+}
+
+/* TimeGrid Structure
+--------------------------------------------------------------------------------------------------*/
+.fc-time-grid-container,
+.fc-time-grid {
+  /* so slats/bg/content/etc positions get scoped within here */
+  position: relative;
+  z-index: 1;
+}
+
+.fc-time-grid {
+  min-height: 100%;
+  /* so if height setting is 'auto', .fc-bg stretches to fill height */
+}
+
+.fc-time-grid table {
+  /* don't put outer borders on slats/bg/content/etc */
+  border: 0 hidden transparent;
+}
+
+.fc-time-grid > .fc-bg {
+  z-index: 1;
+}
+
+.fc-time-grid .fc-slats,
+.fc-time-grid > hr {
+  /* the <hr> AgendaView injects when grid is shorter than scroller */
+  position: relative;
+  z-index: 2;
+}
+
+.fc-time-grid .fc-bgevent-skeleton,
+.fc-time-grid .fc-content-skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.fc-time-grid .fc-bgevent-skeleton {
+  z-index: 3;
+}
+
+.fc-time-grid .fc-highlight-skeleton {
+  z-index: 4;
+}
+
+.fc-time-grid .fc-content-skeleton {
+  z-index: 5;
+}
+
+.fc-time-grid .fc-helper-skeleton {
+  z-index: 6;
+}
+
+/* TimeGrid Slats (lines that run horizontally)
+--------------------------------------------------------------------------------------------------*/
+.fc-time-grid .fc-slats td {
+  height: 1.5em;
+  border-bottom: 0;
+  /* each cell is responsible for its top border */
+}
+
+.fc-time-grid .fc-slats .fc-minor td {
+  border-top-style: dotted;
+}
+
+.fc-time-grid .fc-slats .ui-widget-content {
+  /* for jqui theme */
+  background: none;
+  /* see through to fc-bg */
+}
+
+/* TimeGrid Highlighting Slots
+--------------------------------------------------------------------------------------------------*/
+.fc-time-grid .fc-highlight-container {
+  /* a div within a cell within the fc-highlight-skeleton */
+  position: relative;
+  /* scopes the left/right of the fc-highlight to be in the column */
+}
+
+.fc-time-grid .fc-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* top and bottom will be in by JS */
+}
+
+/* TimeGrid Event Containment
+--------------------------------------------------------------------------------------------------*/
+.fc-time-grid .fc-event-container,
+.fc-time-grid .fc-bgevent-container {
+  /* a div within a cell within the fc-bgevent-skeleton */
+  position: relative;
+}
+
+.fc-ltr .fc-time-grid .fc-event-container {
+  /* space on the sides of events for LTR (default) */
+  margin: 0 2.5% 0 2px;
+}
+
+.fc-rtl .fc-time-grid .fc-event-container {
+  /* space on the sides of events for RTL */
+  margin: 0 2px 0 2.5%;
+}
+
+.fc-time-grid .fc-event,
+.fc-time-grid .fc-bgevent {
+  position: absolute;
+  z-index: 1;
+  /* scope inner z-index's */
+}
+
+.fc-time-grid .fc-bgevent {
+  /* background events always span full width */
+  left: 0;
+  right: 0;
+}
+
+/* Generic Vertical Event
+--------------------------------------------------------------------------------------------------*/
+.fc-v-event.fc-not-start {
+  /* events that are continuing from another day */
+  /* replace space made by the top border with padding */
+  border-top-width: 0;
+  padding-top: 1px;
+  /* remove top rounded corners */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.fc-v-event.fc-not-end {
+  /* replace space made by the top border with padding */
+  border-bottom-width: 0;
+  padding-bottom: 1px;
+  /* remove bottom rounded corners */
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* TimeGrid Event Styling
+----------------------------------------------------------------------------------------------------
+We use the full "fc-time-grid-event" class instead of using descendants because the event won't
+be a descendant of the grid when it is being dragged.
+*/
+.fc-time-grid-event {
+  overflow: hidden;
+  /* don't let the bg flow over rounded corners */
+}
+
+.fc-time-grid-event .fc-time,
+.fc-time-grid-event .fc-title {
+  padding: 0 1px;
+}
+
+.fc-time-grid-event .fc-time {
+  font-size: .85em;
+  white-space: nowrap;
+}
+
+/* short mode, where time and title are on the same line */
+.fc-time-grid-event.fc-short .fc-content {
+  /* don't wrap to second line (now that contents will be inline) */
+  white-space: nowrap;
+}
+
+.fc-time-grid-event.fc-short .fc-time,
+.fc-time-grid-event.fc-short .fc-title {
+  /* put the time and title on the same line */
+  display: inline-block;
+  vertical-align: top;
+}
+
+.fc-time-grid-event.fc-short .fc-time span {
+  display: none;
+  /* don't display the full time text... */
+}
+
+.fc-time-grid-event.fc-short .fc-time:before {
+  content: attr(data-start);
+  /* ...instead, display only the start time */
+}
+
+.fc-time-grid-event.fc-short .fc-time:after {
+  content: "\000A0-\000A0";
+  /* seperate with a dash, wrapped in nbsp's */
+}
+
+.fc-time-grid-event.fc-short .fc-title {
+  font-size: .85em;
+  /* make the title text the same size as the time */
+  padding: 0;
+  /* undo padding from above */
+}
+
+/* resizer */
+.fc-time-grid-event .fc-resizer {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+  overflow: hidden;
+  line-height: 8px;
+  font-size: 11px;
+  font-family: monospace;
+  text-align: center;
+  cursor: s-resize;
+}
+
+.fc-time-grid-event .fc-resizer:after {
+  content: "=";
+}
+
+.row {
+  max-width: 68.5rem;
+  width: 100%;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Actor";
+  background: #414143;
+  -webkit-font-smoothing: antialiased;
+  /*-moz-osx-font-smoothing: grayscale;	*/
+}
+
+html, body, h1, h2, h3, h4, h5 {
+  color: #fff;
+}
+
+h1, h2, h3, h4, h5 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.full-run {
+  text-align: center;
+  position: relative;
+  font-size: 1.8em;
+  margin: 0 0 32px;
+}
+.full-run span {
+  position: relative;
+  z-index: 5;
+  background: #414143;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+.full-run em {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  display: block;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px dashed #fff;
+}
+
+.center-frame {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.center-piece {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  vertical-align: middle;
+}
+
+#page {
+  display: block;
+  position: relative;
+  z-index: 9;
+  /*background:yellow;*/
+}
+
+a.btn, input.btn {
+  display: block;
+  width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background: #528b8b;
+  color: #f9f4e1;
+  font-size: 14px;
+  font-style: oblique;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border: none;
+  outline: none;
+  -webkit-transition: all 0.25s;
+  /* For Safari 3.1 to 6.0 */
+  transition: all 0.25s;
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+a.btn:hover, input.btn:hover {
+  background: #4c8181;
+  color: #fbf7ea;
+}
+a.btn:last-child, input.btn:last-child {
+  margin-bottom: 0;
+}
+
+.setto {
+  display: block;
+  width: 50%;
+  margin: 1.4rem auto 0;
+}
+.setto a.btn, .setto input.btn {
+  display: inline-block;
+  width: 48%;
+}
+.setto a.btn:first-child, .setto input.btn:first-child {
+  margin-right: 4%;
+}
+
+@media (max-width: 800px) {
+  .setto {
+    width: 70%;
+  }
+}
+@media (max-width: 600px) {
+  .setto {
+    width: 100%;
+    padding: 0 14px;
+  }
+}
+.single-team #page > header .main-navigation li.menu-item-32 a,
+.single-portfolio #page > header .main-navigation li.menu-item-37 a,
+.post-type-archive-portfolio #page > header .main-navigation li.menu-item-37 a,
+.tax-market-services #page > header .main-navigation li.menu-item-37 a,
+.tax-market-sectors #page > header .main-navigation li.menu-item-37 a {
+  color: #fff;
+}
+
+#page {
+  /*171px*/
+}
+#page > header {
+  background: #edc731;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 10;
+  /*border-top:32px solid $coal; */
+}
+#page > header h1.site-title {
+  margin: 0;
+  padding: 20px 0;
+  text-align: left;
+}
+#page > header > .row {
+  height: 100%;
+}
+#page > header .main-navigation {
+  /*position:absolute;bottom:18px;right:24px;*/
+}
+#page > header .main-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: auto;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+#page > header .main-navigation li {
+  float: left;
+}
+#page > header .main-navigation li:not(:first-child) {
+  margin-left: 24px;
+}
+#page > header .main-navigation li.current-menu-item a {
+  color: #fff;
+}
+#page > header a {
+  color: #333736;
+}
+#page > footer {
+  text-align: center;
+}
+#page .site-content {
+  padding-top: 172px;
+}
+
+/*.home #page > header 	{	border-color:transparent;	}*/
+.grey {
+  background: #b4aba4;
+  color: #393f42;
+  margin-top: 38px;
+}
+.grey h1, .grey h2, .grey h3, .grey h4, .grey h5 {
+  color: #333736;
+}
+.grey .full-run span {
+  background: #b4aba4;
+  color: #333736;
+}
+.grey .full-run em {
+  border-color: #333736;
+}
+.grey .dotters {
+  width: 100%;
+  height: 24px;
+  border-top: 1px dashed #fff;
+}
+
+.green {
+  background: #007e72;
+  color: #333736;
+}
+.green .full-run span {
+  background: #007e72;
+  color: #333736;
+}
+.green .full-run em {
+  border-color: #333736;
+}
+
+.grey > .row, .green > .row {
+  padding: 38px 0;
+}
+.grey > .row:first-child, .green > .row:first-child {
+  padding-bottom: 0;
+}
+.grey > .row.grid, .green > .row.grid {
+  padding-top: 0;
+}
+.grey h1, .grey h2, .grey h3, .grey h4, .grey h5, .green h1, .green h2, .green h3, .green h4, .green h5 {
+  text-align: center;
+  display: block;
+}
+.grey h1.sm, .grey h2.sm, .grey h3.sm, .grey h4.sm, .grey h5.sm, .green h1.sm, .green h2.sm, .green h3.sm, .green h4.sm, .green h5.sm {
+  text-transform: none;
+}
+.grey p, .grey ol, .grey ul, .green p, .green ol, .green ul {
+  font-size: 1.5em;
+  line-height: 1.6;
+}
+.grey p:first-child, .grey ol:first-child, .grey ul:first-child, .green p:first-child, .green ol:first-child, .green ul:first-child {
+  font-size: 2em;
+}
+.grey sup, .green sup {
+  font-size: 140%;
+  top: auto;
+}
+.grey sub, .green sub {
+  font-size: 64%;
+  bottom: auto;
+}
+.grey .btn, .green .btn {
+  margin: 38px auto 12px;
+  display: block;
+  text-align: center;
+  max-width: 200px;
+}
+.grey .btn:first-child, .green .btn:first-child {
+  margin-top: 0;
+}
+
+.grey {
+  padding-bottom: 38px;
+}
+
+.site-footer {
+  background: #fff;
+  color: #b4aba4;
+  /*font-size:3em;line-height:10px*/
+}
+.site-footer p {
+  font-size: 0.8em;
+  line-height: 1;
+}
+.site-footer em {
+  font-style: normal;
+  padding: 0 12px;
+}
+.site-footer a {
+  color: #b4aba4;
+}
+
+.quotes {
+  color: #edc731;
+  font-style: oblique;
+  font-size: 1.6em;
+  position: relative;
+}
+.quotes span {
+  display: block;
+  text-align: right;
+  font-style: normal;
+}
+.quotes .bloc {
+  position: relative;
+  display: block;
+  padding: 0 40px;
+}
+.quotes .q {
+  color: #007e72;
+  font-size: 250%;
+  line-height: 1;
+  height: 10px;
+  display: inline-block;
+  position: absolute;
+}
+.quotes .q:nth-child(1) {
+  left: 0px;
+  top: 0;
+}
+.quotes .q:nth-child(2) {
+  right: 20px;
+  bottom: 42px;
+}
+
+.arrow_box {
+  position: relative;
+  background: #333736;
+}
+
+.arrow_box:after {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(51, 55, 54, 0);
+  border-bottom-color: #333736;
+  border-width: 24px;
+  margin-left: -24px;
+}
+
+.page-services .bucket {
+  margin-top: 38px;
+}
+.page-services .bucket img {
+  display: block;
+  margin: 0 auto;
+}
+.page-services .bucket .sett {
+  cursor: pointer;
+  position: relative;
+}
+.page-services .bucket .sett:hover {
+  /*h3 		{	color:$slate	}*/
+}
+.page-services .bucket .sett:hover img {
+  /*display:none;*/
+}
+.page-services .bucket .sett:hover .tucc, .page-services .bucket .sett:hover img.roll {
+  /*display:block;*/
+}
+.page-services .bucket h3, .page-services .bucket ul {
+  font-size: 0.9em;
+}
+.page-services .bucket h3 {
+  color: #fff;
+  height: 42px;
+  margin-top: 18px;
+  font-weight: 700;
+  display: table;
+  width: 100%;
+  /*&:hover 	{	color:$slate;	}*/
+}
+.page-services .bucket h3 span {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+}
+.page-services .bucket img.roll {
+  display: none;
+}
+.page-services .bucket .tucc {
+  display: none;
+  position: absolute;
+  background: #333736;
+  color: #fff;
+  padding: 20px;
+  width: auto;
+  left: -40px;
+  right: -40px;
+  text-align: left;
+  top: 240px;
+}
+.page-services .bucket .tucc *:last-child {
+  margin-bottom: 0;
+}
+.page-services .bucket ul {
+  display: block;
+  width: 158px;
+  margin: 24px auto 0;
+  text-align: left;
+}
+.page-services .bucket ul li {
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+.page-services .grey {
+  text-align: center;
+}
+.page-services .grey p, .page-services .grey ol, .page-services .grey ul {
+  font-size: 1rem;
+}
+.page-services .grey p + h3.sm {
+  margin-top: 32px;
+}
+
+.page-team .row.grid, .page-portfolio .row.grid, .post-type-archive-portfolio .row.grid, .tax-market-services .row.grid, .tax-market-sectors .row.grid {
+  margin-top: 38px;
+  /*margin-bottom:$mm;*/
+}
+.page-team .row.grid a:not(.trig), .page-portfolio .row.grid a:not(.trig), .post-type-archive-portfolio .row.grid a:not(.trig), .tax-market-services .row.grid a:not(.trig), .tax-market-sectors .row.grid a:not(.trig) {
+  display: block;
+  margin-bottom: 30px;
+  position: relative;
+  color: #f9f4e1;
+  line-height: 1.2;
+  font-style: oblique;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+.page-team .row.grid a:not(.trig) .fa, .page-portfolio .row.grid a:not(.trig) .fa, .post-type-archive-portfolio .row.grid a:not(.trig) .fa, .tax-market-services .row.grid a:not(.trig) .fa, .tax-market-sectors .row.grid a:not(.trig) .fa {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  height: 32px;
+  line-height: 32px;
+  font-size: 32px;
+  margin-top: -12px;
+}
+.page-team .row.grid a:not(.trig) img, .page-portfolio .row.grid a:not(.trig) img, .post-type-archive-portfolio .row.grid a:not(.trig) img, .tax-market-services .row.grid a:not(.trig) img, .tax-market-sectors .row.grid a:not(.trig) img {
+  opacity: 0.8;
+  width: 100%;
+}
+.page-team .row.grid a:not(.trig):hover img, .page-portfolio .row.grid a:not(.trig):hover img, .post-type-archive-portfolio .row.grid a:not(.trig):hover img, .tax-market-services .row.grid a:not(.trig):hover img, .tax-market-sectors .row.grid a:not(.trig):hover img {
+  opacity: 1;
+}
+.page-team .row.grid a:not(.trig):hover span, .page-portfolio .row.grid a:not(.trig):hover span, .post-type-archive-portfolio .row.grid a:not(.trig):hover span, .tax-market-services .row.grid a:not(.trig):hover span, .tax-market-sectors .row.grid a:not(.trig):hover span {
+  max-height: 100px;
+  padding: 12px;
+}
+.page-team .row.grid a:not(.trig) span, .page-portfolio .row.grid a:not(.trig) span, .post-type-archive-portfolio .row.grid a:not(.trig) span, .tax-market-services .row.grid a:not(.trig) span, .tax-market-sectors .row.grid a:not(.trig) span {
+  display: block;
+  font-size: 0.9em;
+  position: absolute;
+  padding: 0px;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #528b8b;
+  max-height: 0;
+  overflow: hidden;
+  /*@include trans(max-height,0.25s);*/
+}
+.page-team .row.grid a:not(.trig):active span, .page-portfolio .row.grid a:not(.trig):active span, .post-type-archive-portfolio .row.grid a:not(.trig):active span, .tax-market-services .row.grid a:not(.trig):active span, .tax-market-sectors .row.grid a:not(.trig):active span {
+  background: #4c8181;
+  color: #fbf7ea;
+}
+.page-team .row.grid a.btn.trig, .page-portfolio .row.grid a.btn.trig, .post-type-archive-portfolio .row.grid a.btn.trig, .tax-market-services .row.grid a.btn.trig {
+  display: none;
+  clear: both;
+  margin-bottom: 30px;
+  background: #528b8b;
+}
+.page-team .row.grid .columns, .page-portfolio .row.grid .columns, .post-type-archive-portfolio .row.grid .columns, .tax-market-services .row.grid .columns, .tax-market-sectors .row.grid .columns {
+  /*margin-top:18px;*/
+}
+.page-team .row.grid .columns.large-4:nth-child(1), .page-portfolio .row.grid .columns.large-4:nth-child(1), .post-type-archive-portfolio .row.grid .columns.large-4:nth-child(1), .tax-market-services .row.grid .columns.large-4:nth-child(1), .tax-market-sectors .row.grid .columns.large-4:nth-child(1) {
+  margin-top: 0;
+}
+.page-team .row.grid .columns.large-4:nth-child(2), .page-portfolio .row.grid .columns.large-4:nth-child(2), .post-type-archive-portfolio .row.grid .columns.large-4:nth-child(2), .tax-market-services .row.grid .columns.large-4:nth-child(2), .tax-market-sectors .row.grid .columns.large-4:nth-child(2) {
+  margin-top: 0;
+}
+.page-team .row.grid .columns.large-4:nth-child(3), .page-portfolio .row.grid .columns.large-4:nth-child(3), .post-type-archive-portfolio .row.grid .columns.large-4:nth-child(3), .tax-market-services .row.grid .columns.large-4:nth-child(3), .tax-market-sectors .row.grid .columns.large-4:nth-child(3) {
+  margin-top: 0;
+}
+.page-team .row.grid .columns.large-3 img, .page-portfolio .row.grid .columns.large-3 img, .post-type-archive-portfolio .row.grid .columns.large-3 img, .tax-market-services .row.grid .columns.large-3 img, .tax-market-sectors .row.grid .columns.large-3 img {
+  max-width: 60%;
+  display: block;
+  margin: 38px auto 0;
+}
+.page-team .row.grid .columns.large-3:nth-child(1) img, .page-team .row.grid .columns.large-3:nth-child(2) img, .page-team .row.grid .columns.large-3:nth-child(3) img, .page-team .row.grid .columns.large-3:nth-child(4) img, .page-portfolio .row.grid .columns.large-3:nth-child(1) img, .page-portfolio .row.grid .columns.large-3:nth-child(2) img, .page-portfolio .row.grid .columns.large-3:nth-child(3) img, .page-portfolio .row.grid .columns.large-3:nth-child(4) img, .post-type-archive-portfolio .row.grid .columns.large-3:nth-child(1) img, .post-type-archive-portfolio .row.grid .columns.large-3:nth-child(2) img, .post-type-archive-portfolio .row.grid .columns.large-3:nth-child(3) img, .post-type-archive-portfolio .row.grid .columns.large-3:nth-child(4) img, .tax-market-services .row.grid .columns.large-3:nth-child(1) img, .tax-market-services .row.grid .columns.large-3:nth-child(2) img, .tax-market-services .row.grid .columns.large-3:nth-child(3) img, .tax-market-services .row.grid .columns.large-3:nth-child(4) img, .tax-market-sectors .row.grid .columns.large-3:nth-child(1) img, .tax-market-sectors .row.grid .columns.large-3:nth-child(2) img, .tax-market-sectors .row.grid .columns.large-3:nth-child(3) img, .tax-market-sectors .row.grid .columns.large-3:nth-child(4) img {
+  margin-top: 0;
+}
+.page-team .row.grid .columns + .columns:last-child, .page-portfolio .row.grid .columns + .columns:last-child, .post-type-archive-portfolio .row.grid .columns + .columns:last-child, .tax-market-services .row.grid .columns + .columns:last-child, .tax-market-sectors .row.grid .columns + .columns:last-child {
+  float: left !important;
+}
+.page-team .row.grid.default a.btn.trig, .page-portfolio .row.grid.default a.btn.trig, .post-type-archive-portfolio .row.grid.default a.btn.trig, .tax-market-services .row.grid.default a.btn.trig, .tax-market-sectors .row.grid.default a.btn.trig {
+  display: block;
+}
+.btn.back {
+	clear: both;
+    font-size: 14px;
+    line-height: 1.2em;
+}
+.page-team .row.grid.default > .columns, .page-portfolio .row.grid.default > .columns, .post-type-archive-portfolio .row.grid.default > .columns, .tax-market-services .row.grid.default > .columns, .tax-market-sectors .row.grid.default > .columns {
+  display: none;
+}
+.page-team .row.grid.default > .columns:nth-child(1), .page-team .row.grid.default > .columns:nth-child(2), .page-team .row.grid.default > .columns:nth-child(3), .page-team .row.grid.default > .columns:nth-child(4), .page-team .row.grid.default > .columns:nth-child(5), .page-team .row.grid.default > .columns:nth-child(6), .page-portfolio .row.grid.default > .columns:nth-child(1), .page-portfolio .row.grid.default > .columns:nth-child(2), .page-portfolio .row.grid.default > .columns:nth-child(3), .page-portfolio .row.grid.default > .columns:nth-child(4), .page-portfolio .row.grid.default > .columns:nth-child(5), .page-portfolio .row.grid.default > .columns:nth-child(6), .post-type-archive-portfolio .row.grid.default > .columns:nth-child(1), .post-type-archive-portfolio .row.grid.default > .columns:nth-child(2), .post-type-archive-portfolio .row.grid.default > .columns:nth-child(3), .post-type-archive-portfolio .row.grid.default > .columns:nth-child(4), .post-type-archive-portfolio .row.grid.default > .columns:nth-child(5), .post-type-archive-portfolio .row.grid.default > .columns:nth-child(6), .tax-market-services .row.grid.default > .columns:nth-child(1), .tax-market-services .row.grid.default > .columns:nth-child(2), .tax-market-services .row.grid.default > .columns:nth-child(3), .tax-market-services .row.grid.default > .columns:nth-child(4), .tax-market-services .row.grid.default > .columns:nth-child(5), .tax-market-services .row.grid.default > .columns:nth-child(6), .tax-market-sectors .row.grid.default > .columns:nth-child(1), .tax-market-sectors .row.grid.default > .columns:nth-child(2), .tax-market-sectors .row.grid.default > .columns:nth-child(3), .tax-market-sectors .row.grid.default > .columns:nth-child(4), .tax-market-sectors .row.grid.default > .columns:nth-child(5), .tax-market-sectors .row.grid.default > .columns:nth-child(6) {
+  display: block;
+}
+
+.page-portfolio #main > .full-run, .post-type-archive-portfolio #main > .full-run, .tax-market-services #main > .full-run, .tax-market-sectors #main > .full-run {
+  color: #007e72;
+}
+.page-portfolio #main > .full-run em, .post-type-archive-portfolio #main > .full-run em, .tax-market-services #main > .full-run em, .tax-market-sectors #main > .full-run em {
+  border-color: #007e72;
+}
+.page-portfolio .service-categories, .post-type-archive-portfolio .service-categories, .tax-market-services .service-categories, .tax-market-sectors .service-categories {
+  background: #528b8b;
+  position: relative;
+  display: block;
+  margin-bottom: -14px;
+  padding-left: 12px;
+}
+.page-portfolio .service-categories option {
+	background-color: #fff;
+	color: #000;
+}
+.page-portfolio .service-categories .fa, .post-type-archive-portfolio .service-categories .fa, .tax-market-services .service-categories .fa, .tax-market-sectors .service-categories .fa {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  line-height: 20px;
+  font-size: 20px;
+  margin-top: -10px;
+  color: #f9f4e1;
+}
+.page-portfolio .service-categories select, .post-type-archive-portfolio .service-categories select, .tax-market-services .service-categories select, .tax-market-sectors .service-categories select {
+  background: transparent;
+  position: relative;
+  z-index: 2;
+  color: #f9f4e1;
+  outline: none;
+  border: none;
+}
+.page-portfolio .service-categories + .row.grid, .post-type-archive-portfolio .service-categories + .row.grid, .tax-market-services .service-categories + .row.grid, .tax-market-sectors .service-categories + .row.grid {
+  margin-top: 44px;
+}
+.page-portfolio .green, .post-type-archive-portfolio .green, .tax-market-services .green, .tax-market-sectors .green {
+  background: #007e72 url(assets/img/green-bg-portfolio.png) 130% 0% no-repeat;
+}
+.page-portfolio .grey .row.grid, .post-type-archive-portfolio .grey .row.grid, .tax-market-services .grey .row.grid, .tax-market-sectors .grey .row.grid {
+  margin-bottom: 0;
+  padding-bottom: 22px;
+  background: #fff;
+}
+.page-portfolio .grey .row.grid .columns, .post-type-archive-portfolio .grey .row.grid .columns, .tax-market-services .grey .row.grid .columns, .tax-market-sectors .grey .row.grid .columns {
+  display: block;
+  height: 240px;
+}
+.page-portfolio .grey .full-run, .post-type-archive-portfolio .grey .full-run, .tax-market-services .grey .full-run, .tax-market-sectors .grey .full-run {
+  margin-bottom: 0;
+}
+.page-portfolio ul.serv-list, .post-type-archive-portfolio ul.serv-list, .tax-market-services ul.serv-list, .tax-market-sectors ul.serv-list {
+  list-style: none;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  margin: 0 0 38px 0;
+  text-align: center;
+}
+.page-portfolio ul.serv-list li, .post-type-archive-portfolio ul.serv-list li, .tax-market-services ul.serv-list li, .tax-market-sectors ul.serv-list li {
+  /*background:$slate;*/
+  background: rgba(0, 126, 114, 0.8);
+  color: #333736;
+  padding: 12px 22px;
+  line-height: 1.1;
+  /*margin-bottom:1rem;*/
+  border-bottom: 1px solid #006f64;
+  display: inline-block;
+  width: auto;
+}
+.page-portfolio ul.serv-list li:last-child, .post-type-archive-portfolio ul.serv-list li:last-child, .tax-market-services ul.serv-list li:last-child, .tax-market-sectors ul.serv-list li:last-child {
+  border-bottom: none;
+}
+.page-portfolio ul.serv-list li.spltt, .post-type-archive-portfolio ul.serv-list li.spltt, .tax-market-services ul.serv-list li.spltt, .tax-market-sectors ul.serv-list li.spltt {
+  display: block;
+  height: 0.0000001rem;
+  width: 100%;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.page-portfolio ul.serv-list strong, .post-type-archive-portfolio ul.serv-list strong, .tax-market-services ul.serv-list strong, .tax-market-sectors ul.serv-list strong {
+  font-weight: normal;
+  color: #b4aba4;
+}
+.page-portfolio ul.serv-list b, .post-type-archive-portfolio ul.serv-list b, .tax-market-services ul.serv-list b, .tax-market-sectors ul.serv-list b {
+  padding: 0 8px;
+}
+
+.page-team .grey {
+  text-align: center;
+  font-style: oblique;
+}
+.page-team .grey b {
+  color: #528b8b;
+}
+.page-team .grey p, .page-team .grey ol, .page-team .grey ul {
+  color: #fff;
+}
+.page-team .green .row {
+  background: url(assets/img/green-bg-team.png) 100% 50% no-repeat;
+}
+.page-team .row.grid a {
+  background: rgba(0, 0, 0, 0.4);
+}
+.page-team .row.grid a:hover {
+  background: #528b8b;
+}
+.page-team .row.grid a img {
+  /*padding:22px;*/
+}
+
+/* Blog/News styles */
+.page-news h3 {
+	text-align: left;
+}
+
+
+.page-training .grey h3 {
+  margin-bottom: 38px;
+  text-transform: none;
+}
+
+.page-contact .site-main > h1.full-run {
+  color: #007e72;
+}
+.page-contact .site-main > h1.full-run em {
+  border-color: #007e72;
+}
+.page-contact .contact-row {
+  color: #fff;
+  font-size: 0.8em;
+}
+.page-contact .contact-row em {
+  padding: 0 20px;
+}
+.page-contact .contact-row b {
+  color: #528b8b;
+  font-size: 2em;
+  font-weight: 300;
+}
+.page-contact address {
+  font-style: normal;
+  font-size: 1.8em;
+  color: #fff;
+  line-height: 1;
+  padding: 36px 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+.page-contact .grey {
+  text-align: center;
+}
+.page-contact .social-links {
+  list-style: none;
+  display: block;
+  width: 180px;
+  margin: 36px auto 0;
+}
+.page-contact .social-links li {
+  float: left;
+}
+.page-contact .social-links li:not(:first-child) {
+  margin-left: 33px;
+}
+.page-contact .social-links li a {
+  background: #528b8b;
+  display: block;
+  width: 38px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);
+  -webkit-transition: background 0.25s;
+  /* For Safari 3.1 to 6.0 */
+  transition: background 0.25s;
+}
+.page-contact .social-links li a .fa {
+  color: #b4aba4;
+  line-height: 38px;
+  height: 38px;
+  font-size: 1.6em;
+  -webkit-transition: color 0.25s;
+  /* For Safari 3.1 to 6.0 */
+  transition: color 0.25s;
+}
+.page-contact .social-links li a:hover {
+  background: #4c8181;
+}
+.page-contact .social-links li a:hover .fa {
+  color: #fbf7ea;
+}
+
+.page-services iframe, .page-contact iframe, .page-training iframe {
+  display: block;
+  width: 100%;
+}
+
+#map-canvas {
+  height: 500px;
+}
+
+.hex-set {
+  position: relative;
+  display: block;
+  max-width: 792px;
+  height: 360px;
+  margin: 0 auto 0;
+}
+.hex-set .hex.major {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -150px;
+  width: 300px;
+  height: 348px;
+ 		/*
+ 		&:before 	{	top:-90px;
+						border-left: 150px solid transparent;
+						border-right: 150px solid transparent;
+						border-bottom: 90px solid $mustard;	
+		}
+		&:after 	{	bottom:-90px;
+						border-left: 150px solid transparent;
+						border-right: 150px solid transparent;
+						border-top: 90px solid $mustard;	
+		}
+		*/
+}
+.hex-set .hex.major img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin: 68px auto 0;
+  /*padding-top:68px;*/
+}
+.hex-set .hex {
+  position: absolute;
+  background: url(assets/img/hex.png) 50% 50% no-repeat;
+  background-size: contain;
+  color: #333736;
+  text-align: center;
+  line-height: 1;
+  text-transform: uppercase;
+  width: 150px;
+  height: 174px;
+}
+.hex-set .hex:nth-child(2) {
+  top: 214px;
+  left: 6px;
+}
+.hex-set .hex:nth-child(3) {
+  top: 76px;
+  left: 86px;
+}
+.hex-set .hex:nth-child(4) {
+  top: 76px;
+  right: 86px;
+}
+.hex-set .hex:nth-child(5) {
+  top: 214px;
+  right: 6px;
+}
+.hex-set .hex em {
+  font-style: normal;
+  font-size: 70%;
+  display: block;
+  margin-top: 8px;
+}
+.hex-set + h3 {
+  text-align: center;
+  color: #edc731;
+  text-transform: none;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+  .hex-set {
+    height: 600px;
+  }
+  .hex-set .hex {
+    /*position:absolute; color:$slate; text-align:center;line-height:1;text-transform:uppercase;*/
+    /*em 			{	font-style:normal;font-size:70%;display:block; margin-top:8px;	}*/
+  }
+  .hex-set .hex:nth-child(2) {
+    top: 458px;
+    left: 50%;
+    margin-left: -270px;
+  }
+  .hex-set .hex:nth-child(3) {
+    top: 322px;
+    left: 50%;
+    margin-left: -192px;
+  }
+  .hex-set .hex:nth-child(4) {
+    top: 322px;
+    right: 50%;
+    margin-right: -192px;
+  }
+  .hex-set .hex:nth-child(5) {
+    top: 458px;
+    right: 50%;
+    margin-right: -270px;
+  }
+}
+@media (max-width: 560px) {
+  .hex-set {
+    height: 668px;
+    overflow: hidden;
+  }
+  .hex-set .hex.major {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    margin-left: -120px;
+    width: 240px;
+    height: 134px;
+  }
+  .hex-set .hex.major:before {
+    top: -72px;
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-bottom: 72px solid #edc731;
+  }
+  .hex-set .hex.major:after {
+    bottom: -72px;
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-top: 72px solid #edc731;
+  }
+  .hex-set .hex.major img {
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -20px auto 0;
+    width: 60%;
+    height: auto;
+  }
+  .hex-set .hex {
+    /*position:absolute; color:$slate; text-align:center;line-height:1;text-transform:uppercase;*/
+    /*em 			{	font-style:normal;font-size:70%;display:block; margin-top:8px;	}*/
+  }
+  .hex-set .hex:nth-child(2) {
+    top: 518px;
+    left: 50%;
+    margin-left: -156px;
+  }
+  .hex-set .hex:nth-child(3) {
+    top: 334px;
+    left: 50%;
+    margin-left: -156px;
+  }
+  .hex-set .hex:nth-child(4) {
+    top: 334px;
+    right: 50%;
+    margin-right: -156px;
+  }
+  .hex-set .hex:nth-child(5) {
+    top: 518px;
+    right: 50%;
+    margin-right: -156px;
+  }
+}
+/*
+.hex {
+	width: 150px;
+	height: 84px;
+	background: $mustard;
+	position: relative;
+}
+.hex:before {
+	content: "";
+	position: absolute;
+	top: -45px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: 75px solid transparent;
+	border-right: 75px solid transparent;
+	border-bottom: 45px solid $mustard;
+}
+.hex:after {
+	content: "";
+	position: absolute;
+	bottom: -45px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: 75px solid transparent;
+	border-right: 75px solid transparent;
+	border-top: 45px solid $mustard;
+}*/
+.wpcf7-form-control-wrap.inquiry span.wpcf7-list-item {
+  margin: 0;
+}
+.wpcf7-form-control-wrap.inquiry span.wpcf7-list-item-label {
+  padding-left: 8px;
+}
+.wpcf7-form-control-wrap.inquiry input[type=checkbox], .wpcf7-form-control-wrap.inquiry input[type=radio] {
+  margin: 0;
+}
+.wpcf7-form-control-wrap.inquiry label {
+  color: #b4aba4;
+  display: inline-block;
+  padding-right: 24px;
+}
+
+@media only screen and (max-width: 40.0625em) {
+  #page > header {
+    border-top: none;
+  }
+  #page > header.on .main-navigation ul {
+    max-height: 1000px;
+  }
+  #page > header.on .main-navigation a.menu-toggle {
+    color: #f9f4e1;
+  }
+  #page > header h1.site-title {
+    margin: 0;
+    padding: 20px 0;
+    max-width: 50%;
+    float: left;
+  }
+  #page > header h1.site-title a img {
+    max-width: 100%;
+  }
+  #page > header a.menu-toggle {
+    float: right;
+    font-size: 2.4em;
+    color: #333736;
+  }
+  #page > header > .row {
+    margin-top: 0;
+  }
+  #page > header .main-navigation {
+    margin-left: -0.9375rem;
+    margin-right: -0.9375rem;
+  }
+  #page > header .main-navigation ul {
+    background: #333736;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height 0.5s;
+    /* For Safari 3.1 to 6.0 */
+    transition: max-height 0.5s;
+  }
+  #page > header .main-navigation li {
+    float: none;
+  }
+  #page > header .main-navigation li a {
+    display: block;
+    padding: 8px 0;
+    text-align: center;
+    color: #f9f4e1;
+  }
+  #page > header .main-navigation li:not(:first-child) {
+    margin-left: 0px;
+  }
+  #page .stac p {
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+  }
+}
+.stats {
+  margin: 22px 0 !important;
+  color: #fff;
+}
+.stats .columns {
+  padding: 0;
+}
+.stats h3 {
+  font-size: 0.9em;
+  text-align: left;
+  color: #b4aba4;
+}
+.stats a {
+  color: #edc731;
+  display: block;
+  clear: both;
+}
+.stats .fa {
+  width: 18px;
+  text-align: center;
+  margin-right: 8px;
+}
+
+.single-team .team-wrap > h1 span, .single-team .portfolio-wrap > h1 span, .single-portfolio .team-wrap > h1 span, .single-portfolio .portfolio-wrap > h1 span {
+  display: block;
+  color: #b4aba4;
+  font-size: 88%;
+}
+.single-team .site-main > .team-wrap > h1, .single-team .site-main > .portfolio-wrap > h1, .single-portfolio .site-main > .team-wrap > h1, .single-portfolio .site-main > .portfolio-wrap > h1 {
+  margin: 0 0 44px;
+  padding-bottom: 12px;
+  background: url(assets/img/title-dots-grey.png) 0 100% repeat-x;
+  line-height: 1.1;
+}
+.single-team .attachment-port, .single-portfolio .attachment-port {
+  display: block;
+  max-width: 60%;
+  margin: 0 auto 38px;
+}
+.single-team .gallery, .single-portfolio .gallery {
+  display: block;
+  max-width: 376px;
+  margin: 0 auto 80px;
+}
+.single-team .sub-box, .single-portfolio .sub-box {
+  background: url(assets/img/title-dots-grey.png) 0 100% repeat-x, url(assets/img/title-dots-grey.png) 0 0 repeat-x;
+  margin-bottom: 38px;
+  color: #b4aba4;
+  text-align: center;
+  padding: 1.3rem 0;
+}
+
+.single-portfolio .grey > .row > .column > p {
+  font-size: 1em;
+}
+.single-portfolio .grey > .row > .column > p:first-child {
+  font-size: 120%;
+}
+
+#site-calendar .fc-toolbar {
+  background: #414143;
+  margin-bottom: 0;
+}
+#site-calendar .fc-toolbar h2 {
+  color: #edc731;
+  font-size: 1em;
+  line-height: 49px;
+  margin: 0 18px 0 0;
+  padding: 0;
+  font-style: oblique;
+}
+#site-calendar .fc-head {
+  background: #edc731;
+}
+#site-calendar .fc-left {
+  float: right;
+}
+#site-calendar .fc-right {
+  float: left;
+}
+#site-calendar button.fc-button {
+  background: #528b8b;
+  box-shadow: none;
+  border-radius: 0;
+  opacity: 1;
+  text-shadow: none;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  margin: 8px 0 8px 8px;
+}
+#site-calendar .fc-widget-header {
+  border: none;
+}
+#site-calendar .fc-widget-header table {
+  margin-bottom: 0;
+  border: none;
+}
+#site-calendar .fc-widget-header table tr {
+  background: #edc731;
+  border: none;
+}
+#site-calendar .fc-widget-header table th {
+  border: none;
+  text-transform: uppercase;
+  padding: 8px 0;
+}
+#site-calendar .fc-today-button {
+  color: #fff;
+  font-size: 1em;
+  font-style: oblique;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+#site-calendar .fc-today-button + .fc-button-group {
+  margin-left: 0;
+}
+#site-calendar .fc-today-button + .fc-button-group button.fc-button {
+  color: #fff;
+}
+#site-calendar .fc-content-skeleton table thead {
+  background: #d7d2ce;
+  padding: 8px 0;
+}
+#site-calendar .fc-content-skeleton table thead td {
+  color: #9d9188;
+}
+
+@media only screen and (min-width: 40.0625em) {
+  #page > header .columns {
+    height: 139px;
+  }
+  #page > header .main-navigation {
+    display: table;
+    height: 139px;
+    float: right;
+    padding-bottom: 20px;
+    padding-right: 12px;
+  }
+  #page > header .main-navigation ul {
+    display: table-cell;
+    vertical-align: bottom;
+  }
+
+  .single-team .team-wrap, .single-portfolio .team-wrap {
+    max-width: 48%;
+    float: left;
+  }
+  .single-team .site-main > .team-wrap > h1, .single-team .site-main > .portfolio-wrap > h1, .single-portfolio .site-main > .team-wrap > h1, .single-portfolio .site-main > .portfolio-wrap > h1 {
+    text-align: left;
+  }
+  .single-team .attachment-port, .single-portfolio .attachment-port {
+    float: right;
+    max-width: 48%;
+    margin-left: 4%;
+    display: inline;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .stac p {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  .page-services .bucket .sett:hover h3 {
+    color: #333736;
+  }
+  .page-services .bucket .sett:hover img {
+    display: none;
+  }
+  .page-services .bucket .sett:hover .tucc, .page-services .bucket .sett:hover img.roll {
+    display: block;
+  }
+}
+@media only screen and (max-width: 1096px) {
+  .site-footer em {
+    display: block;
+    text-indent: -9999px;
+  }
+}
+@media only screen and (min-width: 1096px) {
+  .site-main.column, .grey > .row > .column, .green > .row > .column {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .page-services .bucket {
+    padding: 0 40px;
+    min-height: 780px;
+  }
+  .page-services .bucket:not(:first-child) {
+    border-left: 1px solid #fff;
+  }
+
+  .single-portfolio .portfolio-wrap {
+    width: 62%;
+    float: left;
+  }
+  .single-portfolio .gallery {
+    float: right;
+  }
+  .single-portfolio .gallery .slick-dots {
+    text-align: right;
+  }
+}
+.home.page {
+  /*#page > */
+  /*#page > */
+}
+.home.page a.btn {
+  text-shadow: none;
+}
+.home.page .bg-set {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: auto;
+  z-index: 1;
+}
+.home.page .bg-screen {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 8;
+  height: 150%;
+  /*bottom:0;*/
+  -webkit-transform: translateZ(-20px) scale(21);
+          transform: translateZ(-20px) scale(21);
+}
+.home.page .bg-frame {
+  -webkit-perspective: 1px;
+          perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.home.page #page {
+  height: 100%;
+}
+.home.page #page .site-content {
+  position: relative;
+  z-index: 9;
+  padding-top: 0px;
+  height: 100%;
+  /*overflow:hidden;top:0;left:0;right:0;bottom:0;overflow:auto; */
+  /*						
+  						*/
+}
+.home.page .roll {
+  position: relative;
+  z-index: 10;
+  /*height:100%;*/
+}
+.home.page footer {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.home.page .stac {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding-top: 140px;
+  /*text-shadow: 0 0px 10px rgba(255,255,255,0.6);	 */
+}
+.home.page .stac p {
+  font-size: 2em;
+  font-weight: 900;
+  line-height: 1.4;
+  color: #333736;
+  /*text-shadow:0 2px 4px #fff;*/
+}
+.home.page .stac p sub {
+  font-size: 70%;
+  display: block;
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+}
+.home.page .stac p sub + br {
+  display: none;
+}
+.home.page .stac .center-frame {
+  /*padding-top:18%;height:auto;*/
+}
+.home.page .aro {
+  display: block;
+  width: 60px;
+  margin-left: -30px;
+  position: fixed;
+  bottom: 8px;
+  left: 50%;
+  text-align: center;
+  z-index: 10;
+  color: #333736;
+}
+.home.page .aro .fa {
+  font-size: 1.6em;
+  font-weight: 100;
+}
+
+/*# sourceMappingURL=style.css.map */
